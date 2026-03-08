@@ -1,0 +1,295 @@
+import { useState } from "react";
+
+const skills = [
+  { name: "AWS", level: 95, color: "#FF9900", icon: "☁️" },
+  { name: "Azure", level: 88, color: "#0078D4", icon: "⚡" },
+  { name: "GCP", level: 82, color: "#4285F4", icon: "🌐" },
+  { name: "Kubernetes", level: 90, color: "#326CE5", icon: "⚙️" },
+  { name: "Terraform", level: 87, color: "#7B42BC", icon: "🏗️" },
+  { name: "Docker", level: 93, color: "#2496ED", icon: "🐳" },
+  { name: "CI/CD", level: 91, color: "#FC6D26", icon: "🔄" },
+  { name: "Monitoring", level: 89, color: "#E6522C", icon: "📊" },
+];
+
+const projects = [
+  {
+    id: 1,
+    title: "Multi-Cloud HA Architecture",
+    cloud: "AWS + GCP",
+    badge: "AWS",
+    badgeColor: "#FF9900",
+    desc: "Designed and deployed a high-availability multi-cloud infrastructure handling 2M+ daily requests with 99.99% uptime SLA.",
+    tags: ["Terraform", "EKS", "GKE", "Route53"],
+    metric: "99.99%", metricLabel: "Uptime",
+  },
+  {
+    id: 2,
+    title: "Zero-Downtime CI/CD Pipeline",
+    cloud: "Azure DevOps",
+    badge: "Azure",
+    badgeColor: "#0078D4",
+    desc: "Built end-to-end CI/CD pipeline for 50+ microservices using Azure DevOps, reducing deployment time by 70%.",
+    tags: ["Azure DevOps", "Helm", "ArgoCD", "Canary"],
+    metric: "70%", metricLabel: "Faster Deploys",
+  },
+  {
+    id: 3,
+    title: "Kubernetes Platform Engineering",
+    cloud: "GCP GKE",
+    badge: "GCP",
+    badgeColor: "#4285F4",
+    desc: "Architected a production GKE platform with auto-scaling, RBAC, and GitOps workflows for 15 product teams.",
+    tags: ["GKE", "Istio", "FluxCD", "OPA"],
+    metric: "15", metricLabel: "Teams Onboarded",
+  },
+  {
+    id: 4,
+    title: "Observability & Alerting Stack",
+    cloud: "AWS",
+    badge: "AWS",
+    badgeColor: "#FF9900",
+    desc: "Implemented full-stack observability with Prometheus, Grafana, and PagerDuty, cutting MTTR from 45 min to 8 min.",
+    tags: ["Prometheus", "Grafana", "Loki", "PagerDuty"],
+    metric: "82%", metricLabel: "MTTR Reduction",
+  },
+  {
+    id: 5,
+    title: "Infrastructure Cost Optimization",
+    cloud: "Multi-Cloud",
+    badge: "FinOps",
+    badgeColor: "#10B981",
+    desc: "Analyzed and optimized cloud spend across AWS, Azure, and GCP environments saving $480K annually.",
+    tags: ["Cost Explorer", "Spot Instances", "Reserved", "Rightsizing"],
+    metric: "$480K", metricLabel: "Annual Savings",
+  },
+  {
+    id: 6,
+    title: "Disaster Recovery Automation",
+    cloud: "AWS",
+    badge: "AWS",
+    badgeColor: "#FF9900",
+    desc: "Designed automated DR solution with cross-region failover achieving RTO of 4 min and RPO of near-zero.",
+    tags: ["Route53", "RDS", "Lambda", "EventBridge"],
+    metric: "4 min", metricLabel: "RTO Achieved",
+  },
+];
+
+const stats = [
+  { value: "4+", label: "Years Experience" },
+  { value: "15+", label: "Projects Delivered" },
+  { value: "3", label: "Cloud Platforms" },
+  { value: "99.9%", label: "Avg Uptime SLA" },
+];
+
+export default function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const filters = ["All", "AWS", "Azure", "GCP", "FinOps"];
+
+  const filtered = activeFilter === "All"
+    ? projects
+    : projects.filter(p => p.badge === activeFilter);
+
+  return (
+    <div style={{
+      fontFamily: "'DM Mono', 'Courier New', monospace",
+      background: "#0A0A0F",
+      color: "#E2E8F0",
+      minHeight: "100vh",
+      padding: "0",
+    }}>
+      {/* Animated background grid */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+        backgroundImage: `linear-gradient(rgba(255,153,0,0.03) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(255,153,0,0.03) 1px, transparent 1px)`,
+        backgroundSize: "60px 60px",
+        pointerEvents: "none", zIndex: 0,
+      }} />
+
+      {/* Hero */}
+      <header style={{
+        position: "relative", zIndex: 1,
+        borderBottom: "1px solid rgba(255,153,0,0.2)",
+        padding: "60px 48px 48px",
+        background: "linear-gradient(180deg, rgba(255,153,0,0.05) 0%, transparent 100%)",
+      }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{
+            display: "inline-block", background: "rgba(255,153,0,0.1)",
+            border: "1px solid rgba(255,153,0,0.4)", borderRadius: 4,
+            padding: "4px 12px", fontSize: 11, color: "#FF9900",
+            letterSpacing: "0.15em", marginBottom: 20, fontWeight: 700,
+          }}>● AVAILABLE FOR OPPORTUNITIES</div>
+
+          <h1 style={{
+            fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+            fontFamily: "'Space Mono', monospace",
+            fontWeight: 700, lineHeight: 1.1, margin: "0 0 16px",
+            background: "linear-gradient(135deg, #FFFFFF 0%, #FF9900 60%, #FFD580 100%)",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+          }}>
+            Site Reliability<br />Engineer
+          </h1>
+
+          <p style={{
+            fontSize: 17, color: "#94A3B8", maxWidth: 560, lineHeight: 1.7,
+            margin: "0 0 36px",
+          }}>
+            4+ years architecting resilient, scalable infrastructure across AWS, Azure & GCP.
+            Delivered 15+ production systems with obsessive focus on uptime, automation, and performance.
+          </p>
+
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            {["AWS Certified", "Azure DevOps", "GCP Professional", "Kubernetes", "Terraform"].map(tag => (
+              <span key={tag} style={{
+                padding: "6px 14px", borderRadius: 4, fontSize: 12,
+                border: "1px solid rgba(226,232,240,0.15)",
+                background: "rgba(226,232,240,0.05)", color: "#CBD5E1",
+                letterSpacing: "0.05em",
+              }}>{tag}</span>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <main style={{ maxWidth: 1100, margin: "0 auto", padding: "48px 48px", position: "relative", zIndex: 1 }}>
+
+        {/* Stats */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1,
+          background: "rgba(255,153,0,0.15)", borderRadius: 8,
+          overflow: "hidden", marginBottom: 64,
+          border: "1px solid rgba(255,153,0,0.2)",
+        }}>
+          {stats.map((s, i) => (
+            <div key={i} style={{
+              background: "#0A0A0F", padding: "28px 24px", textAlign: "center",
+            }}>
+              <div style={{
+                fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700,
+                color: "#FF9900", fontFamily: "'Space Mono', monospace",
+              }}>{s.value}</div>
+              <div style={{ fontSize: 12, color: "#64748B", letterSpacing: "0.1em", marginTop: 4 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Skills */}
+        <section style={{ marginBottom: 64 }}>
+          <h2 style={{
+            fontSize: 13, letterSpacing: "0.2em", color: "#FF9900",
+            fontWeight: 700, marginBottom: 28, textTransform: "uppercase",
+          }}>// TECHNICAL PROFICIENCY</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px 48px" }}>
+            {skills.map(skill => (
+              <div key={skill.name}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                  <span style={{ fontSize: 13, color: "#CBD5E1" }}>{skill.icon} {skill.name}</span>
+                  <span style={{ fontSize: 12, color: "#64748B" }}>{skill.level}%</span>
+                </div>
+                <div style={{ height: 3, background: "rgba(255,255,255,0.06)", borderRadius: 2 }}>
+                  <div style={{
+                    height: "100%", width: `${skill.level}%`, borderRadius: 2,
+                    background: `linear-gradient(90deg, ${skill.color}, ${skill.color}99)`,
+                    transition: "width 1s ease",
+                  }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28, flexWrap: "wrap", gap: 12 }}>
+            <h2 style={{
+              fontSize: 13, letterSpacing: "0.2em", color: "#FF9900",
+              fontWeight: 700, textTransform: "uppercase", margin: 0,
+            }}>// PROJECT HIGHLIGHTS</h2>
+            <div style={{ display: "flex", gap: 8 }}>
+              {filters.map(f => (
+                <button key={f} onClick={() => setActiveFilter(f)} style={{
+                  padding: "5px 14px", borderRadius: 4, fontSize: 11,
+                  fontFamily: "inherit", cursor: "pointer", letterSpacing: "0.08em",
+                  border: activeFilter === f ? "1px solid #FF9900" : "1px solid rgba(255,255,255,0.1)",
+                  background: activeFilter === f ? "rgba(255,153,0,0.15)" : "transparent",
+                  color: activeFilter === f ? "#FF9900" : "#64748B",
+                  transition: "all 0.2s",
+                }}>{f}</button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 16 }}>
+            {filtered.map(p => (
+              <div key={p.id} style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderRadius: 8, padding: 24,
+                transition: "border-color 0.2s, transform 0.2s",
+                cursor: "default",
+              }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = "rgba(255,153,0,0.3)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+                  <span style={{
+                    fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 3,
+                    background: `${p.badgeColor}20`, color: p.badgeColor,
+                    border: `1px solid ${p.badgeColor}40`, letterSpacing: "0.1em",
+                  }}>{p.badge}</span>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontSize: 20, fontWeight: 700, color: "#FF9900", fontFamily: "'Space Mono', monospace" }}>{p.metric}</div>
+                    <div style={{ fontSize: 10, color: "#475569", letterSpacing: "0.08em" }}>{p.metricLabel}</div>
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: 15, fontWeight: 700, margin: "0 0 8px", color: "#F1F5F9" }}>{p.title}</h3>
+                <p style={{ fontSize: 13, color: "#64748B", lineHeight: 1.6, margin: "0 0 16px" }}>{p.desc}</p>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {p.tags.map(t => (
+                    <span key={t} style={{
+                      fontSize: 10, padding: "2px 8px", borderRadius: 3,
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      color: "#94A3B8", letterSpacing: "0.05em",
+                    }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer style={{
+          marginTop: 64, paddingTop: 32,
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          flexWrap: "wrap", gap: 16,
+        }}>
+          <span style={{ fontSize: 12, color: "#334155", letterSpacing: "0.1em" }}>
+            SRE PORTFOLIO · 4+ YRS · 15+ PROJECTS
+          </span>
+          <div style={{ display: "flex", gap: 20 }}>
+            {["GitHub", "LinkedIn", "Resume"].map(l => (
+              <a key={l} href="#" style={{
+                fontSize: 12, color: "#64748B", textDecoration: "none",
+                letterSpacing: "0.1em",
+                borderBottom: "1px solid rgba(255,153,0,0.3)",
+                paddingBottom: 2,
+              }}>{l} ↗</a>
+            ))}
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
