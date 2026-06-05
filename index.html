@@ -1,181 +1,219 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ravina Rathod | Site Reliability Engineer</title>
-<link rel="stylesheet" href="style.css">
-</head>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    color:#333;
+    line-height:1.6;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0f172a,#2563eb);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero h2{
+    font-weight:300;
+    margin-top:10px;
+}
+
+.hero p{
+    margin-top:15px;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:40px 0;
+}
+
+.section-title{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.skill-box{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+.contact{
+    margin-top:15px;
+}
+
+.contact a{
+    color:white;
+    text-decoration:none;
+}
+
+@media(max-width:768px){
+.hero h1{
+    font-size:2rem;
+}
+}
+</style>
+
+</head>
 <body>
 
-<header class="hero">
-    <div class="container">
-        <h1>Ravina Rathod</h1>
-        <h2>Site Reliability Engineer</h2>
+<section class="hero">
+    <h1>Ravina Rathod</h1>
+    <h2>Site Reliability Engineer</h2>
 
-        <div class="contact">
-            <p>📧 ravinarathod009@gmail.com</p>
-            <p>📱 +91-8197966679</p>
-            <p>📍 Gurugram, India</p>
-        </div>
-
-        <div class="links">
-            <a href="#">LinkedIn</a>
-            <a href="https://clouddevopsravina.github.io">Portfolio</a>
-        </div>
+    <div class="contact">
+        <p>📧 ravinarathod009@gmail.com</p>
+        <p>📱 +91-8197966679</p>
+        <p>📍 Gurugram, India</p>
+        <p>🌐 clouddevopsravina.github.io</p>
     </div>
-</header>
+</section>
 
-<section class="container">
-    <h2>Professional Summary</h2>
+<div class="container">
+
+    <h2 class="section-title">Professional Summary</h2>
 
     <div class="card">
         <p>
             Site Reliability Engineer with 4+ years of experience in AWS Cloud,
-            Kubernetes, Terraform, Jenkins, GitLab CI/CD, ArgoCD,
-            Prometheus, Grafana and Production Support.
-            Experienced in building scalable infrastructure,
-            automating deployments, improving reliability,
-            and maintaining high availability systems.
+            Kubernetes, CI/CD Automation, Infrastructure as Code, Monitoring,
+            and Production Support. Experienced in building scalable cloud
+            platforms, automating deployments, improving system reliability,
+            and maintaining highly available applications.
         </p>
     </div>
-</section>
 
-<section class="container">
-    <h2>Core Competencies</h2>
+    <h2 class="section-title">Technical Skills</h2>
 
-    <div class="grid">
+    <div class="skills">
 
-        <div class="card">Site Reliability Engineering</div>
-        <div class="card">AWS Cloud</div>
-        <div class="card">Kubernetes & Docker</div>
-        <div class="card">Terraform</div>
-        <div class="card">GitLab CI/CD</div>
-        <div class="card">Jenkins</div>
-        <div class="card">ArgoCD</div>
-        <div class="card">Prometheus & Grafana</div>
-        <div class="card">Incident Management</div>
-        <div class="card">Linux Administration</div>
-
-    </div>
-</section>
-
-<section class="container">
-    <h2>Professional Experience</h2>
-
-    <div class="card">
-        <h3>Concentrix Catalyst</h3>
-        <p><strong>Site Reliability Engineer</strong></p>
-        <p>Dec 2021 - Present</p>
-        <p><strong>Client:</strong> T-Mobile</p>
-    </div>
-
-    <div class="card">
-        <h3>AWS Automated Logging Solution</h3>
-
-        <ul>
-            <li>Implemented AWS Lambda based log collection solution.</li>
-            <li>Stored EC2 logs into Amazon S3.</li>
-            <li>Reduced manual log management effort by 50%.</li>
-            <li>Configured CloudWatch monitoring and alerting.</li>
-            <li>Automated infrastructure using Terraform.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>CI/CD Pipeline Automation</h3>
-
-        <ul>
-            <li>Built Jenkins based CI/CD pipelines.</li>
-            <li>Integrated Docker and Kubernetes deployments.</li>
-            <li>Implemented GitOps using ArgoCD.</li>
-            <li>Integrated SonarQube quality gates.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>Blue-Green Deployment Strategy</h3>
-
-        <ul>
-            <li>Implemented Kubernetes Blue-Green deployments.</li>
-            <li>Achieved zero downtime application releases.</li>
-            <li>Integrated rollback mechanism in Jenkins.</li>
-            <li>Managed EKS upgrades and cluster maintenance.</li>
-        </ul>
-    </div>
-
-</section>
-
-<section class="container">
-
-    <h2>Technical Skills</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Cloud</h3>
-            AWS, EC2, S3, IAM, VPC, RDS, Lambda
+        <div class="skill-box">
+            <h3>AWS Cloud</h3>
+            <p>EC2, S3, IAM, VPC, RDS, Lambda, CloudWatch</p>
         </div>
 
-        <div class="card">
+        <div class="skill-box">
             <h3>Containers</h3>
-            Docker, Kubernetes, Helm, EKS
+            <p>Docker, Kubernetes, Helm, EKS</p>
         </div>
 
-        <div class="card">
+        <div class="skill-box">
             <h3>CI/CD</h3>
-            Jenkins, GitHub Actions, GitLab CI/CD, ArgoCD
+            <p>Jenkins, GitLab CI/CD, GitHub Actions, ArgoCD</p>
         </div>
 
-        <div class="card">
+        <div class="skill-box">
             <h3>Monitoring</h3>
-            Prometheus, Grafana, Splunk, CloudWatch
+            <p>Prometheus, Grafana, Splunk, CloudWatch</p>
         </div>
 
-        <div class="card">
-            <h3>IaC</h3>
-            Terraform, OpenTofu
+        <div class="skill-box">
+            <h3>Infrastructure</h3>
+            <p>Terraform, OpenTofu</p>
         </div>
 
-        <div class="card">
+        <div class="skill-box">
             <h3>Scripting</h3>
-            Python, Shell Scripting
+            <p>Python, Shell Scripting</p>
         </div>
 
     </div>
 
-</section>
-
-<section class="container">
-
-    <h2>Achievements</h2>
+    <h2 class="section-title">Professional Experience</h2>
 
     <div class="card">
+        <h3>Site Reliability Engineer | Concentrix Catalyst</h3>
+        <p><strong>Client:</strong> T-Mobile</p>
+        <p><strong>Duration:</strong> December 2021 – Present</p>
+
+        <br>
 
         <ul>
-            <li>Reduced deployment time from 8 hours to 10 minutes.</li>
-            <li>Improved release frequency by 30%.</li>
-            <li>Achieved 99.99% production uptime.</li>
-            <li>Reduced infrastructure cost by 20%.</li>
+            <li>Designed and implemented AWS Lambda based automated logging solutions.</li>
+            <li>Built end-to-end CI/CD pipelines using Jenkins, Docker, Kubernetes and ArgoCD.</li>
+            <li>Implemented GitOps deployment strategy and Blue-Green deployments.</li>
+            <li>Managed AWS EKS clusters and Kubernetes platform operations.</li>
+            <li>Implemented monitoring using Prometheus, Grafana and CloudWatch.</li>
+            <li>Automated infrastructure provisioning using Terraform.</li>
+            <li>Provided production support and maintained 99.9% SLA compliance.</li>
         </ul>
-
     </div>
 
-</section>
-
-<section class="container">
-
-    <h2>Education</h2>
+    <h2 class="section-title">Key Achievements</h2>
 
     <div class="card">
-        <h3>Bachelor of Engineering</h3>
-        <p>Electronics & Communication Engineering</p>
-        <p>PDA College of Engineering</p>
-        <p>2016 - 2020 | 85%</p>
+        <ul>
+            <li>Reduced application deployment time from 8+ hours to under 10 minutes.</li>
+            <li>Improved release frequency by 30% through CI/CD automation.</li>
+            <li>Achieved 99.99% uptime for critical production applications.</li>
+            <li>Reduced infrastructure costs by 20% through optimization and auto-scaling.</li>
+        </ul>
     </div>
 
-</section>
+    <h2 class="section-title">Education</h2>
+
+    <div class="card">
+        <h3>Bachelor of Engineering (B.E)</h3>
+        <p>Electronics & Electronics Engineering</p>
+        <p>PDA College of Engineering, Gulbarga</p>
+        <p>2016 - 2020 | 85% Aggregate</p>
+    </div>
+
+</div>
 
 <footer>
     <p>© 2026 Ravina Rathod | Site Reliability Engineer</p>
@@ -183,3 +221,4 @@
 
 </body>
 </html>
+```
